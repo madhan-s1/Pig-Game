@@ -33,6 +33,7 @@ const init = function () {
 };
 init();
 
+// switching the player
 const switchPlayer = function () {
   currentScore = 0;
   document.querySelector(`#current--${activePlayer}`).textContent =
@@ -42,8 +43,10 @@ const switchPlayer = function () {
   player1El.classList.toggle('player--active');
 };
 
+// Roll dice button
 btnRoll.addEventListener('click', function () {
   if (playing) {
+    // adding random number
     let dice = Math.trunc(Math.random() * 6 + 1);
     diceEl.src = `dice-${dice}.png`;
     diceEl.classList.remove('hidden');
@@ -58,6 +61,7 @@ btnRoll.addEventListener('click', function () {
   }
 });
 
+//  hold button
 btnHold.addEventListener('click', function () {
   if (playing) {
     score[activePlayer] += currentScore;
